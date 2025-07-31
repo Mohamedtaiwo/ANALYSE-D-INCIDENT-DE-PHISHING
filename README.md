@@ -1,17 +1,13 @@
-# 🎓 SOC Phishing Analysis Training Project
+# SOC Phishing Analysis Training Project
 
-> **Mini-projet pédagogique d'analyse d'incident cybersécurité appliquant les frameworks professionnels sur un scénario de phishing réaliste.**
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/votre-profil)
-[![Cybersecurity](https://img.shields.io/badge/Field-Cybersecurity-red)]()
-[![SOC](https://img.shields.io/badge/Specialization-SOC%20Analysis-orange)]()
+**Mini-projet pédagogique d'analyse d'incident cybersécurité appliquant les frameworks professionnels sur un scénario de phishing réaliste.**
 
 ---
 
 ## 🎯 **Aperçu du Projet**
 
 ### **Contexte**
-Exercice de formation de **3h30** simulant l'analyse complète d'un incident de phishing sophistiqué, depuis la détection initiale jusqu'au rapport forensique final.
+Exercice de formation simulant l'analyse complète d'un incident de phishing sophistiqué, depuis la détection initiale jusqu'au rapport forensique final.
 
 ### **Objectifs Pédagogiques**
 - ✅ Maîtriser l'extraction et classification d'IOCs
@@ -71,16 +67,14 @@ Exercice de formation de **3h30** simulant l'analyse complète d'un incident de 
 ```
 📂 docs/
 ├── 📄 SOC-Incident-Report.md     # Rapport principal (format entreprise)
-└── 📄 Educational-Guide.md       # Guide pédagogique détaillé
 
 📂 screenshots/
 ├── 🖼️ virustotal-ip-analysis.png
-├── 🖼️ virustotal-domain-analysis.png  
+├── 🖼️ virustotal-domain-analysis.png
 └── 🖼️ virustotal-hash-search.png
 
 📂 iocs/
 ├── 📄 indicators.json            # IOCs exportables (STIX format)
-└── 📄 yara-rules.yml            # Règles de détection
 
 📂 resources/
 ├── 📄 frameworks-cheatsheet.md   # Rappels théoriques
@@ -138,31 +132,6 @@ Exercice de formation de **3h30** simulant l'analyse complète d'un incident de 
 
 ---
 
-## ⚡ **Quick Start**
-
-1. **Cloner le repository**
-   ```bash
-   git clone https://github.com/votre-username/SOC-Phishing-Analysis-Training
-   ```
-
-2. **Lire le rapport principal**
-   ```bash
-   cd SOC-Phishing-Analysis-Training
-   cat docs/SOC-Incident-Report.md
-   ```
-
-3. **Examiner les screenshots**
-   ```bash
-   ls screenshots/
-   ```
-
-4. **Consulter les IOCs**
-   ```bash
-   cat iocs/indicators.json
-   ```
-
----
-
 ## 🔗 **Ressources Externes**
 
 ### **Outils Utilisés**
@@ -173,15 +142,7 @@ Exercice de formation de **3h30** simulant l'analyse complète d'un incident de 
 ### **Références Théoriques**
 - [Pyramid of Pain](http://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html)
 - [Cyber Kill Chain](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html)
-- [Diamond Model](https://www.activeresponse.org/wp-content/uploads/2013/07/diamond.pdf)
-
----
-
-## 📞 **Contact & Feedback**
-
-- **LinkedIn :** [Votre Profil](https://linkedin.com/in/votre-profil)
-- **Email :** votre.email@exemple.com
-- **Issues :** Utiliser les GitHub Issues pour questions/suggestions
+- [Diamond Model]
 
 ---
 
@@ -190,5 +151,3 @@ Exercice de formation de **3h30** simulant l'analyse complète d'un incident de 
 Ce projet est à des fins **éducatives uniquement**. Libre d'utilisation pour l'apprentissage et la formation.
 
 ---
-
-**⭐ Si ce projet vous a aidé dans votre apprentissage, n'hésitez pas à lui donner une étoile !**"# ANALYSE-D-INCIDENT-DE-PHISHING" 
