@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "title": "SOC Phishing Analysis - IOCs Export",
+    "description": "Indicateurs de compromission extraits lors de l'analyse d'incident de phishing #2025-0731-001",
+    "date_created": "2025-07-31T14:30:00Z",
+    "analyst": "SOC Training Project",
+    "incident_id": "2025-0731-001",
+    "classification": "TLP:WHITE",
+    "confidence": "High",
+    "scenario": "Educational - Fictitious IOCs for training purposes"
+  },
+  "threat_intelligence": {
+    "campaign": "Financial Phishing - Accounting Department Targeting",
+    "threat_actor": "Unknown Financial Cybercriminal",
+    "attack_vector": "Spearphishing with malicious attachment",
+    "motivation": "Financial gain",
+    "sophistication": "Intermediate to Advanced",
+    "target_sectors": ["Finance", "Accounting", "Corporate"]
+  },
+  "kill_chain_analysis": {
+    "completed_phases": [
+      "Reconnaissance",
+      "Weaponization", 
+      "Delivery"
+    ],
+    "blocked_phases": [
+      "Exploitation",
+      "Installation",
+      "Command & Control",
+      "Actions on Objectives"
+    ],
+    "interruption_point": "Email Security Gateway Detection"
+  },
+  "indicators": [
+    {
+      "id": "IOC-001",
+      "type": "email-addr",
+      "value": "finance-department@companyy-update.com",
+      "context": "Malicious sender email address",
+      "pyramid_level": "Domain Names",
+      "difficulty_change": "Medium",
+      "first_seen": "2025-07-31T14:15:32Z",
+      "confidence": "High",
+      "tags": ["phishing", "impersonation", "social-engineering"],
+      "mitre_techniques": ["T1566.001"],
+      "defensive_action": "Block sender, create anti-spam rule",
+      "notes": "Impersonates legitimate finance department communication"
+    },
+    {
+      "id": "IOC-002", 
+      "type": "domain-name",
+      "value": "companyy-update.com",
+      "context": "Typosquatting domain used for phishing campaign",
+      "pyramid_level": "Domain Names",
+      "difficulty_change": "Medium",
+      "first_seen": "2025-07-31T14:15:32Z",
+      "confidence": "High",
+      "tags": ["typosquatting", "phishing", "malicious-domain"],
+      "mitre_techniques": ["T1583.001"],
+      "defensive_action": "DNS sinkhole, domain blocking",
+      "whois_info": {
+        "registrar": "Unknown (Fictitious)",
+        "creation_date": "2025-07-29 (estimated)",
+        "country": "Unknown"
+      },
+      "notes": "Subtle typosquatting - extra 'y' in 'companyy' vs 'company'"
+    },
+    {
+      "id": "IOC-003",
+      "type": "ipv4-addr", 
+      "value": "185.159.158.177",
+      "context": "Source IP address for malicious email delivery",
+      "pyramid_level": "IP Addresses",
+      "difficulty_change": "Easy",
+      "first_seen": "2025-07-31T14:15:32Z",
+      "confidence": "Medium",
+      "tags": ["malicious-ip", "email-delivery", "c2-infrastructure"],
+      "mitre_techniques": ["T1071.001"],
+      "defensive_action": "Firewall blocking, proxy blacklist",
+      "geolocation": {
+        "country": "Norway",
+        "asn": "AS56704",
+        "organization": "Farice ehf"
+      },
+      "reputation": {
+        "virustotal_score": "0/94",
+        "socradar_status": "Suspicious",
+        "abuse_confidence": "Low"
+      },
+      "notes": "Only SOCRadar flagged as suspicious - early warning indicator"
+    },
+    {
+      "id": "IOC-004",
+      "type": "file",
+      "value": "Invoice_July2025.exe",
+      "context": "Malicious executable masquerading as invoice document",
+      "pyramid_level": "Network Artifacts",
+      "difficulty_change": "Difficult",
+      "first_seen": "2025-07-31T14:15:32Z",
+      "confidence": "High",
+      "tags": ["malware", "masquerading", "social-engineering"],
+      "mitre_techniques": ["T1036.005"],
+      "defensive_action": "Filename pattern detection, executable blocking",
+      "file_properties": {
+        "size": "Unknown (Educational scenario)",
+        "extension": ".exe",
+        "mime_type": "application/x-msdownload"
+      },
+      "notes": "Uses invoice naming pattern to deceive accounting staff"
+    },
+    {
+      "id": "IOC-005",
+      "type": "file-hash",
+      "value": "a1b2c3d4e5f67890123456789012345678901234567890abcdef1234567890abcdef123456",
+      "hash_type": "SHA256",
+      "context": "Hash signature of malicious executable",
+      "pyramid_level": "Hash Values", 
+      "difficulty_change": "Trivial",
+      "first_seen": "2025-07-31T14:15:32Z",
+      "confidence": "High",
+      "tags": ["malware-hash", "signature"],
+      "mitre_techniques": ["T1027"],
+      "defensive_action": "Antivirus signature, hash blacklisting",
+      "notes": "Fictitious hash for educational purposes - would be unique malware signature in real scenario"
+    },
+    {
+      "id": "IOC-006",
+      "type": "user-agent",
+      "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "context": "User-Agent string used by attacker infrastructure",
+      "pyramid_level": "Network Artifacts",
+      "difficulty_change": "Difficult", 
+      "first_seen": "2025-07-31T14:15:32Z",
+      "confidence": "Medium",
+      "tags": ["fingerprinting", "infrastructure", "user-agent"],
+      "mitre_techniques": ["T1071.001"],
+      "defensive_action": "Behavioral correlation, fingerprinting rules",
+      "notes": "Standard Windows 10 Chrome user-agent - correlation with other indicators needed"
+    },
+    {
+      "id": "IOC-007",
+      "type": "email-subject",
+      "value": "URGENT: Invoice Payment Required - Action Needed",
+      "context": "Social engineering subject line pattern",
+      "pyramid_level": "TTPs",
+      "difficulty_change": "Maximum",
+      "first_seen": "2025-07-31T14:15:32Z", 
+      "confidence": "High",
+      "tags": ["social-engineering", "urgency", "phishing-pattern"],
+      "mitre_techniques": ["T1566.001"],
+      "defensive_action": "Subject pattern detection, user awareness training",
+      "social_engineering_elements": [
+        "Urgency ('URGENT')",
+        "Authority ('Invoice Payment')", 
+        "Call to action ('Action Needed')"
+      ],
+      "notes": "Classic social engineering pattern combining urgency and authority"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "IOC-002",
+      "target": "IOC-001", 
+      "relationship_type": "hosts",
+      "description": "Domain hosts the malicious email account"
+    },
+    {
+      "source": "IOC-003",
+      "target": "IOC-002",
+      "relationship_type": "resolves-to",
+      "description": "IP address resolves to malicious domain"
+    },
+    {
+      "source": "IOC-001",
+      "target": "IOC-004",
+      "relationship_type": "delivers",
+      "description": "Email account delivers malicious file attachment"
+    },
+    {
+      "source": "IOC-004",
+      "target": "IOC-005",
+      "relationship_type": "has-hash",
+      "description": "Malicious file has specific SHA256 hash"
+    }
+  ],
+  "mitre_mapping": {
+    "tactics": [
+      {
+        "id": "TA0001",
+        "name": "Initial Access",
+        "techniques": ["T1566.001"]
+      },
+      {
+        "id": "TA0002", 
+        "name": "Execution",
+        "techniques": ["T1204.002"]
+      },
+      {
+        "id": "TA0005",
+        "name": "Defense Evasion", 
+        "techniques": ["T1036.005", "T1027"]
+      },
+      {
+        "id": "TA0009",
+        "name": "Collection",
+        "techniques": ["T1114.001"]
+      },
+      {
+        "id": "TA0011",
+        "name": "Command and Control",
+        "techniques": ["T1071.001"]
+      }
+    ]
+  },
+  "defensive_recommendations": [
+    {
+      "priority": "High",
+      "category": "Immediate Actions",
+      "actions": [
+        "Block domain companyy-update.com at DNS level",
+        "Block IP 185.159.158.177 at firewall",
+        "Quarantine email sender finance-department@companyy-update.com",
+        "Add SHA256 hash to antivirus signatures"
+      ]
+    },
+    {
+      "priority": "Medium",
+      "category": "Detection Rules",
+      "actions": [
+        "Create YARA rule for Invoice*.exe pattern",
+        "Implement email subject pattern detection",
+        "Monitor for similar typosquatting domains",
+        "Correlate user-agent with suspicious activities"
+      ]
+    },
+    {
+      "priority": "Low",
+      "category": "Strategic Improvements",
+      "actions": [
+        "User awareness training on typosquatting",
+        "Implement sender authentication (SPF/DMARC)",
+        "Regular threat hunting for similar campaigns",
+        "Automate IOC enrichment processes"
+      ]
+    }
+  ],
+  "export_formats": {
+    "stix": "Available on request",
+    "misp": "Available on request", 
+    "csv": "Available in repository",
+    "yara": "See yara-rules.yml in same directory"
+  },
+  "educational_notes": {
+    "disclaimer": "This JSON file contains FICTITIOUS indicators created for educational purposes. These IOCs should NOT be used for production threat hunting or blocking.",
+    "learning_objectives": [
+      "Understanding IOC structure and classification",
+      "Learning Pyramid of Pain practical application", 
+      "Practicing MITRE ATT&CK technique mapping",
+      "Developing IOC export and sharing skills"
+    ],
+    "real_world_usage": "In production environments, IOCs would be validated, enriched with additional context, and shared through platforms like MISP, ThreatConnect, or STIX/TAXII feeds."
+  }
+}
