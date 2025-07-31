@@ -125,11 +125,6 @@ Exercice de formation simulant l'analyse complète d'un incident de phishing sop
 - Compréhension des threats
 - Motivation pour l'apprentissage pratique
 
-### **Durée Recommandée**
-- **Analyse complète :** 3h30
-- **Lecture rapport :** 30 min
-- **Reproduction exercice :** 4h
-
 ---
 
 ## 🔗 **Ressources Externes**
